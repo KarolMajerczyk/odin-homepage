@@ -1,3 +1,8 @@
+:root {
+  --ff-primary: "Roboto", sans-serif;
+  --ff-accent: "Playfair Display", serif;
+}
+
 body {
   background: #eee;
 }
