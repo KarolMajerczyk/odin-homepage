@@ -61,6 +61,13 @@ li {
 
 /* Common Styles */
 
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 5vw, 80px);
+  padding-block: 32px;
+}
+
 .list {
   list-style: none;
 }
@@ -71,7 +78,7 @@ li {
 }
 
 .secondary-heading {
-  font-size: 36px;
+  font-size: 32px;
   text-align: center;
 }
 
@@ -80,18 +87,8 @@ li {
   text-align: center;
 }
 
-/* Custom Styles */
-
-.main-content section:nth-child(odd) {
+.main-content > section:nth-child(odd) {
   background-color: var(--bg-color-accent);
-}
-
-.main-content {
-  --section-padding: 30px 16px;
-}
-
-.main-content > section:not(:last-child) {
-  padding: var(--section-padding);
 }
 
 /* ------------- */
@@ -110,7 +107,10 @@ li {
 
 .about-card {
   transform: skewY(var(--skew-y)) translateY(calc(var(--translate-y) + 4%));
-  max-width: 800px;
+}
+
+.about-card :not(:last-child) {
+  margin-bottom: 16px;
 }
 
 .card-portrait {
@@ -132,12 +132,7 @@ li {
   filter: brightness(80%);
 }
 
-.card-content {
-  display: grid;
-  gap: 12px;
-}
-
-.card-content p {
+.about-card p {
   line-height: 1.5;
   color: var(--clr-700);
 }
@@ -157,26 +152,34 @@ li {
 
 /* Media Queries */
 
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 500px) {
+  #about-section {
+    --translate-y: 40%;
+    --skew-y: 10deg;
+  }
+
   .about-card {
     background-color: #ffffff;
     box-shadow: var(--shadow-light);
 
     padding: 48px 24px;
+
+    transform: skewY(var(--skew-y)) translateY(calc(var(--translate-y) + 15%));
   }
 
   .card-portrait {
     float: left;
-    top: 0;
+    transform: translate(-70px, -100px);
+    margin-right: -50px;
+    margin-bottom: -100px;
 
-    max-height: 10px;
     shape-outside: url("assets/images/portrait.jpg");
     shape-margin: 20px;
   }
 
   .card-portrait img {
-    width: 300px;
-    max-height: 350px;
+    width: 250px;
+    max-height: 300px;
     object-fit: cover;
   }
 
@@ -187,14 +190,14 @@ li {
   .main-content > section {
     --section-padding: 30px 80px;
   }
-} */
+}
 
 /* ---------------- */
 /* Projects Section */
 /* ---------------- */
 
 #projects-section {
-  padding-block: 50px 160px;
+  padding-bottom: 50px;
 }
 
 #projects-section h2 {
@@ -203,7 +206,9 @@ li {
 
 .portfolio-projects {
   display: grid;
-  gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  row-gap: 48px;
+  column-gap: 32px;
 }
 
 .project-card {
@@ -246,7 +251,13 @@ li {
 
 #contact-section {
   color: #ffffff;
+}
 
+#contact-section p {
+  max-width: 30ch;
+}
+
+#contact-section .container {
   display: grid;
   gap: 56px;
 }
@@ -266,8 +277,10 @@ li {
   gap: 32px;
 }
 
-#contact-sectio > img {
-  margin: -100px;
+#contact-section > .container > img {
+  max-height: 350px;
+  width: 100%;
+  object-fit: cover;
 }
 
 #contact-section .icon-box img {
@@ -277,4 +290,37 @@ li {
 #contact-section .social-links {
   --icons-width: 40px;
   --icons-gap: 24px;
+}
+
+#contact-section address span {
+  display: block;
+}
+
+@media screen and (min-width: 600px) {
+  #contact-section .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  #contact-section .icon-box {
+    display: flex;
+    gap: 8px;
+  }
+
+  #contact-section .icon-box img {
+    display: block;
+    width: 20px;
+  }
+
+  .contact-details {
+    align-content: center;
+  }
+
+  #contact-section .social-links {
+    justify-content: left;
+  }
+
+  #contact-section h2 {
+    text-align: left;
+  }
 }
