@@ -64,7 +64,7 @@ li {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding-inline: clamp(16px, 5vw, 80px);
+  padding-inline: clamp(24px, 5vw, 80px);
   padding-block: 32px;
 }
 
@@ -73,7 +73,7 @@ li {
 }
 
 .primary-heading {
-  font-size: 64px;
+  font-size: 56px;
   color: #ffffff;
 }
 
@@ -153,25 +153,30 @@ li {
 /* Media Queries */
 
 @media screen and (min-width: 500px) {
+  .secondary-heading {
+    text-align: left;
+  }
+
   #about-section {
     --translate-y: 40%;
     --skew-y: 10deg;
+
+    margin-bottom: 100px;
   }
 
   .about-card {
     background-color: #ffffff;
     box-shadow: var(--shadow-light);
 
-    padding: 48px 24px;
+    padding: 24px;
 
     transform: skewY(var(--skew-y)) translateY(calc(var(--translate-y) + 15%));
   }
 
   .card-portrait {
     float: left;
-    transform: translate(-70px, -100px);
-    margin-right: -50px;
-    margin-bottom: -100px;
+    transform: translate(-60px, -80px);
+    margin-right: -40px;
 
     shape-outside: url("assets/images/portrait.jpg");
     shape-margin: 20px;
@@ -181,6 +186,7 @@ li {
     width: 250px;
     max-height: 300px;
     object-fit: cover;
+    margin-bottom: -80px;
   }
 
   .about-card .social-links {
@@ -189,6 +195,38 @@ li {
 
   .main-content > section {
     --section-padding: 30px 80px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .about-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 72px;
+  }
+
+  .card-portrait {
+    grid-row: 1/4;
+  }
+
+  .about-card .social-links {
+    display: flex;
+  }
+
+  .card-portrait {
+    transform: translate(0px, 0px);
+    margin-right: 0px;
+    margin-bottom: 0px;
+
+    shape-outside: none;
+    shape-margin: 0px;
+  }
+
+  .card-portrait img {
+    width: 100%;
+    min-height: 100%;
+
+    transform: scale(1.4);
   }
 }
 
@@ -206,7 +244,7 @@ li {
 
 .portfolio-projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(202px, 1fr));
   row-gap: 48px;
   column-gap: 32px;
 }
