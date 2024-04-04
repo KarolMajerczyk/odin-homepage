@@ -90,7 +90,7 @@ li {
   --section-padding: 30px 16px;
 }
 
-.main-content > section {
+.main-content > section:not(:last-child) {
   padding: var(--section-padding);
 }
 
@@ -238,4 +238,43 @@ li {
 .project-card .social-links {
   --icons-width: 20px;
   --icons-gap: 8px;
+}
+
+/* --------------- */
+/* Contact Section */
+/* --------------- */
+
+#contact-section {
+  color: #ffffff;
+
+  display: grid;
+  gap: 56px;
+}
+
+#contact-section h2 {
+  margin-bottom: 8px;
+}
+
+#contact-section header {
+  font-size: 18px;
+}
+
+.contact-details {
+  padding: 20px 16px;
+
+  display: grid;
+  gap: 32px;
+}
+
+#contact-sectio > img {
+  margin: -100px;
+}
+
+#contact-section .icon-box img {
+  display: none;
+}
+
+#contact-section .social-links {
+  --icons-width: 40px;
+  --icons-gap: 24px;
 }
