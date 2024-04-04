@@ -5,6 +5,10 @@
   --ff-accent: "Playfair Display", serif;
 
   --bg-color-accent: #1a9db4;
+
+  --shadow-light: 0px 0px 10px rgb(0 0 0 / 50%);
+
+  --clr-700: #555;
 }
 
 /* CSS Reset */
@@ -27,6 +31,7 @@ html {
 }
 
 body {
+  font-family: var(--ff-primary);
   min-height: 100svh;
 }
 
@@ -45,6 +50,7 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
+  font-family: var(--ff-accent);
 }
 
 p,
@@ -53,16 +59,93 @@ li {
   text-wrap: pretty;
 }
 
-/* CSS Styles */
+/* Common Styles */
+
+.list {
+  list-style: none;
+}
+
+.primary-heading {
+  font-size: 64px;
+  color: #ffffff;
+}
+
+.secondary-heading {
+  font-size: 36px;
+  text-align: center;
+}
+
+/* Custom Styles */
 
 .main-content section:nth-child(odd) {
   background-color: var(--bg-color-accent);
 }
 
 .main-content {
-  --section-padding: 40px;
+  --section-padding: 30px 16px;
 }
 
-.main-content section {
+.main-content > section {
   padding: var(--section-padding);
 }
+
+/* ------------- */
+/* About Section */
+/* ------------- */
+
+#about-section {
+  --translate-y: 57%;
+  --skew-y: 25deg;
+
+  transform: skewY(calc(var(--skew-y) * -1))
+    translateY(calc(var(--translate-y) * -1));
+
+  box-shadow: var(--shadow-light);
+}
+
+.about-card {
+  transform: skewY(var(--skew-y)) translateY(calc(var(--translate-y) + 4%));
+}
+
+.card-portrait {
+  margin: 12px;
+  position: relative;
+  box-shadow: var(--shadow-light);
+}
+
+.card-portrait h1 {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+
+  padding: 0 8px;
+  text-shadow: 1px 1px rgb(0 0 0 / 25%);
+}
+
+.card-portrait img {
+  filter: brightness(80%);
+}
+
+.card-content {
+  display: grid;
+  gap: 12px;
+}
+
+.card-content p {
+  line-height: 1.5;
+  color: var(--clr-700);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.social-links > li {
+  width: 25px;
+}
+
+/* ---------------- */
+/* Projects Section */
+/* ---------------- */
